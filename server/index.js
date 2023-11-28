@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from 'dotenv';
-import getApiTransaction from "./../server/util.js"
-import Transaction from "./models/Transaction.js";
 dotenv.config();
+import {responder} from "./util.js"
+import {postApiTransaction,getApiTransaction} from"./controllers/Transaction.js"
+
 
 const app = express();
-
 app.use(express.json());
 
 const connectDB = async () => {
@@ -19,23 +19,14 @@ const connectDB = async () => {
 connectDB();
 
 app.get('/api/health', async (req, res) => {
-    res.json({
-        success: true,
-        message: "server is rinning"
-    })
+
+    responder({res,success:true,message:"Server is live" , data:null})
+    
 })
 
-app.post('/api/transaction', getApiTransaction)
+app.post('/api/transaction', postApiTransaction)
 
-app.get('/api/transactions', async (req, res) => {
-    const allTransaction = await Transaction.find();
-
-    res.json({
-        success: true,
-        message: "Successfully fetched all transaction",
-        data: allTransaction,
-    })
-})
+app.get('/api/transactions',getApiTransaction )
 
 const PORT = process.env.PORT || 5000;
 
