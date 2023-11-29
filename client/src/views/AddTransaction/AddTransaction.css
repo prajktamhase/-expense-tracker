@@ -1,0 +1,43 @@
+.Transaction-card{
+    padding: 30px 50px;
+    margin: 40px auto;
+    border: 1px solid black;
+    width: 400px;
+   background-color: white;
+   color: black;
+    box-shadow: 0 1px 1px 1px gray;
+}
+
+.category-design{
+    margin: 15px ;
+    padding: 15px;
+}
+
+.text{
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-size: 40px;
+}
+.form{
+    padding: 8px 50px;
+    margin: 20px auto;
+    text-align: center;
+    width: 300px;
+}
+.category-text{
+display: inline-block;
+justify-content: space-evenly;
+margin: 10px;
+padding: 10px 20px;
+
+}
+.button-transaction{
+    background-color:goldenrod;
+    color: black;
+    margin: 10px auto;
+    font-size: 30px;
+    padding: 7px 90px;
+    display: flex;
+    justify-content: center;
+}

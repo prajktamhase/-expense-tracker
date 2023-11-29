@@ -1,0 +1,22 @@
+.login-form-design{ 
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px 2px black;
+    margin: 0px auto;
+    padding: 30px 90px;
+    position: relative;
+    top: 180px;
+    background-color: white;
+  
+}
+.box-login{
+    padding: 10px 10px;
+    margin: 17px auto;
+    width:380px; 
+    color: black;
+    font-size: 20px;
+  }
+
+.color{
+    color: rgb(10, 5, 59);
+}

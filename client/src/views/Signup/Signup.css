@@ -1,0 +1,32 @@
+.sign-form-design{ 
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px 2px rgb(2, 3, 70);
+    margin: 1px auto;
+    padding: 10px 100px;
+    position: relative;
+    top:70px;
+    background-color: white;
+}
+.sign-img{
+     margin-top: 80px;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    
+    flex-wrap: wrap;
+}
+.content{
+    margin-left: 130px;
+}
+
+/* .background{
+    background-size: cover;
+     background-image: linear-gradient(rgba(184, 179, 254, 0.9), rgba(206, 179, 246, 0.8)),
+    url("sign.png");  
+    opacity: 1.9;
+    width: 100%;
+    height: 100vh;        
+} */
