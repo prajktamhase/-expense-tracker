@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom"
 import "./../AddTransaction/AddTransaction.css"
 import Footer from "./../../component/Footer/Footer"
+import Navbar from "./../../component/Navbar/Navbar"
 
 function UpdateTransaction() {
 
@@ -17,15 +18,14 @@ function UpdateTransaction() {
         else {
             const indexToDeleted = category.indexOf(e.target.value)
         }
-
     }
-
-
+    
     const { _id } = useParams();
 
     const loadTransaction = async () => {
         const response = await axios.get(`/api/transactions/${_id}`)
         const {amount, type,category,description} = response?.data?.data
+
         setAmount(amount)
         setType(type)
         setCategory(category)
@@ -42,6 +42,7 @@ function UpdateTransaction() {
     }
 
     return (<>
+    <Navbar/>
         <div className="Transaction-card">
             <h1 className="text">Update Transaction</h1>
             <form>
@@ -138,4 +139,4 @@ function UpdateTransaction() {
     </>
     )
 }
-export default UpdateTransaction
+export default UpdateTransaction;

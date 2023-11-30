@@ -20,7 +20,7 @@ function Navbar() {
                 <div className="flex-direction">
                     <Link to="/login" className="container design">Login</Link>
                     <Link to="/signup" className="container design"> Signup</Link>
-                    <Link to="./addTransaction" className="container design">AddTransaction</Link>
+                     <Link to="./addTransaction" className="container design">AddTransaction</Link> 
                 </div>
 
                 <div className="user ">

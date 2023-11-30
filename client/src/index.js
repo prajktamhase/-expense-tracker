@@ -5,6 +5,7 @@ import Home from "./views/Home/Home";
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import "./index.css";
 import AddTransaction from "./views/AddTransaction/AddTransaction"
+import UpdateTransaction from "./views/UpdateTransaction/update.js"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/update",
+        element: <UpdateTransaction/>,
       },
 
       {

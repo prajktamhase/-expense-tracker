@@ -3,20 +3,20 @@ import axios from "axios"
 import Navbar from "./../../component/Navbar/Navbar"
 import { useEffect, useState } from "react"
 import Footer from "./../../component/Footer/Footer"
-
-
+import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function App() {
 
   const [transaction, setTransaction] = useState();
+  const { id } = useParams;
 
   const deleteTransaction = async (_id) => {
     const response = await axios.delete(`/api/transactions/${_id}`)
     if (response?.data?.success) {
-        loadTransaction();
+      loadTransaction();
     }
-}
-  
+  }
 
   const CATEGORY_EMOJI_MAP = {
     "Food": "🍕",
@@ -28,7 +28,7 @@ function App() {
     "Salary": "💰",
     "Side-hussle": "🎽",
     "Freelancing": "💻",
-    "Other":"🤷‍♂️"
+    "Other": "🤷‍♂️"
   }
 
   const loadTransaction = async () => {
@@ -44,50 +44,53 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-    <div className='flex'>
+      <Navbar />
+      <div className='flex'>
 
-      {
-        transaction?.map((transaction, index) => {
-          const { _id, amount, type, category,description, createdAt } = transaction;
-          const date = new Date(createdAt).toLocaleDateString();
-          const time = new Date(createdAt).toLocaleTimeString();
-          return (
-            <>
-              <div className='transaction-card' key={index}>
+        {
+          transaction?.map((transaction, index) => {
+            const { _id, amount, type, category, description, createdAt } = transaction;
+            const date = new Date(createdAt).toLocaleDateString();
+            const time = new Date(createdAt).toLocaleTimeString();
+            return (
+              <>
+                <div className='transaction-card' key={index}>
+                  <p>{_id}</p>
 
-                <span className={`amount-text ${type === "debit" ? "debit-amount" : "credit-amount"}`}>
-                  {type === "debit" ? "-" : "+"} {" "}
-                  {amount}
+                  <span className={`amount-text ${type === "debit" ? "debit-amount" : "credit-amount"}`}>
+                    {type === "debit" ? "-" : "+"} {" "}
+                    {amount}
 
-                </span>
-                <span className='category'>
-                  {type === "debit" ? "Debited" : "Credited"}
-                  <span className='time'>  on &nbsp; {date} &nbsp;at &nbsp;{time}</span>
-                </span>
-                <p className='description-box'>Message : {description}</p>
-               
-                <span className='box'>
-                  {CATEGORY_EMOJI_MAP[category] }
-                  {category}</span>
-                  <br/>
+                  </span>
+                  <span className='category'>
+                    {type === "debit" ? "Debited" : "Credited"}
+                    <span className='time'>  on &nbsp; {date} &nbsp;at &nbsp;{time}</span>
+                  </span>
+                  <p className='description-box'>Message : {description}</p>
 
-                  <button type="button"
-                                        className="delete-button"
-                                        onClick={() => {
-                                            deleteTransaction(_id)
-                                        }}>
-                                        ❌</button>
+                  <span className='box'>
+                    {CATEGORY_EMOJI_MAP[category]}
+                    {category}</span>
+                  <br />
 
-                                    <a href={`/updateTransaction/${_id}`} target="_blank"
-                                        className="update-button">✏️</a>
+                  <div className='container-button'>
+                    <button type="button"
+                      className="delete-button"
+                      onClick={() => {
+                        deleteTransaction(_id)
+                      }}>
+                      ❌</button>
 
-              </div>
-            </>
-          )
-        })}
-    </div>
-    <Footer/>
+                    <Link to="/update"
+                    className='update-button'>✏️</Link>
+                  </div>
+
+                </div>
+              </>
+            )
+          })}
+      </div>
+      <Footer />
     </>
   );
 }

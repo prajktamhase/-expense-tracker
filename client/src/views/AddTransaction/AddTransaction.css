@@ -37,7 +37,8 @@ padding: 10px 20px;
     color: black;
     margin: 10px auto;
     font-size: 30px;
-    padding: 7px 90px;
+    padding: 7px 70px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
