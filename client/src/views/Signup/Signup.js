@@ -52,12 +52,12 @@ function Signup() {
       <div className="flex-container sign-form-design">   
         <div className=" content">
             <form>
-          <h1 className="text-center color">SignUp</h1><br />
+          <h1 className="text-center color-blue">SignUp</h1><br />
             <div>
-              <label htmlFor="name" className="color">Name: </label><br />
+              <label htmlFor="name" className="color-blue">Name: </label><br />
               <input type="text" id="name"
                 value={name}
-                className="box"
+                className="box-input"
                 placeholder="Enter Name"
                 onChange={(e) => {
                   setName(e.target.value)
@@ -65,10 +65,10 @@ function Signup() {
             </div>
 
             <div>
-              <label htmlFor="email" className="color">Email: </label><br />
+              <label htmlFor="email" className="color-blue">Email: </label><br />
               <input type="email" id="email"
                 value={email}
-                className="box"
+                className="box-input"
                 placeholder="Enter Email"
                 onChange={(e) => {
                   setEmail(e.target.value)
@@ -76,10 +76,10 @@ function Signup() {
             </div>
 
             <div>
-              <label htmlFor="password" className="color">Password:</label><br />
+              <label htmlFor="password" className="color-blue">Password:</label><br />
               <input type="password" id="pasword"
                 value={password}
-                className="box"
+                className="box-input"
                 placeholder="Enter Password"
                 onChange={(e) => {
                   setPassword(e.target.value)
@@ -87,10 +87,10 @@ function Signup() {
             </div>
 
             <div>
-              <label htmlFor="mobile" className="color">Mobile:</label><br />
+              <label htmlFor="mobile" className="color-blue">Mobile:</label><br />
               <input type="text" id="mobile"
                 value={mobile}
-                className="box"
+                className="box-input"
                 placeholder="Enter Mobile"
                 onChange={(e) => {
                   setMobile(e.target.value)
@@ -98,10 +98,10 @@ function Signup() {
             </div>
 
             <div>
-              <label htmlFor="address" className="color">Address:</label><br />
+              <label htmlFor="address" className="color-blue">Address:</label><br />
               <input type="text" id="address"
                 value={address}
-                className="box"
+                className="box-input"
                 placeholder="Enter Address"
                 onChange={(e) => {
                   setAddress(e.target.value)
@@ -110,10 +110,10 @@ function Signup() {
 
 
             <button type="button"
-              className="btn"
+              className="button-signup"
               onClick={signup}
             >Signup</button>
-
+<br/>
             <p>
               <Link to="/login" className="link-text">Already have an account?</Link>
             </p>

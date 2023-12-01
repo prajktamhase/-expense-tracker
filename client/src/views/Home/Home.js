@@ -3,13 +3,12 @@ import axios from "axios"
 import Navbar from "./../../component/Navbar/Navbar"
 import { useEffect, useState } from "react"
 import Footer from "./../../component/Footer/Footer"
-import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 function App() {
 
   const [transaction, setTransaction] = useState();
-  const { id } = useParams;
+
 
   const deleteTransaction = async (_id) => {
     const response = await axios.delete(`/api/transactions/${_id}`)
@@ -19,16 +18,16 @@ function App() {
   }
 
   const CATEGORY_EMOJI_MAP = {
-    "Food": "🍕",
-    "Entertainment": "🎷",
-    "Rent": "🏠",
-    "Shooping": "🧺",
-    "Travel": "✈️",
-    "Education": "📕",
-    "Salary": "💰",
-    "Side-hussle": "🎽",
-    "Freelancing": "💻",
-    "Other": "🤷‍♂️"
+    "food": "🍕",
+    "entertainement": "🎷",
+    "rent": "🏠",
+    "shooping": "🧺",
+    "travel": "✈️",
+    "education": "📕",
+    "salary": "💰",
+    "side-hussle": "🎽",
+    "freelancing": "💻",
+    "other": "🤷‍♂️"
   }
 
   const loadTransaction = async () => {
@@ -45,7 +44,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='flex'>
+      <div className='background'>
+        </div>
+      <div className='flex-home '>
 
         {
           transaction?.map((transaction, index) => {
@@ -55,8 +56,6 @@ function App() {
             return (
               <>
                 <div className='transaction-card' key={index}>
-                  <p>{_id}</p>
-
                   <span className={`amount-text ${type === "debit" ? "debit-amount" : "credit-amount"}`}>
                     {type === "debit" ? "-" : "+"} {" "}
                     {amount}
@@ -81,7 +80,7 @@ function App() {
                       }}>
                       ❌</button>
 
-                    <Link to="/update"
+                    <Link to={`/update/${_id}`}
                     className='update-button'>✏️</Link>
                   </div>
 
@@ -90,6 +89,7 @@ function App() {
             )
           })}
       </div>
+      
       <Footer />
     </>
   );

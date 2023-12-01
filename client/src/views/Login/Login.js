@@ -43,24 +43,24 @@ useEffect(() => {
 
         <div className="login-form-design">
           <form>
-            <h1 className="text-center color">Login</h1>
+            <h1 className="text-center color-blue">Login</h1>
 
             <div>
               <label htmlFor="email" 
-              className="color">Email: </label><br />
+              className="color-blue">Email: </label><br />
               <input type="email" id="email"
                 value={email}
-                className="box-login"
+                className="box-input"
                 placeholder="Enter Email"
                 onChange={(e) => {
                   setEmail(e.target.value)
                 }} />
             </div>
             <div>
-              <label htmlFor="password" className="color">Password:</label><br />
+              <label htmlFor="password" className="color-blue">Password:</label><br />
               <input type="password" id="pasword"
                 value={password}
-                className="box-login"
+                className="box-input color-blue"
                 placeholder="Enter Password"
                 onChange={(e) => {
                   setPassword(e.target.value)
@@ -68,11 +68,11 @@ useEffect(() => {
             </div>
 
             <button type="button"
-              className="btn"
+              className="button-login"
               onClick={login}
             >Login</button><br />
             <p>
-              <Link to="/signup" className="link">Create a new a
+              <Link to="/signup" className="link-sign">Create a new a
                 account?</Link>
             </p>
 

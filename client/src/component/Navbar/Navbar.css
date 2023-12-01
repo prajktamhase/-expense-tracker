@@ -2,15 +2,23 @@
     color: gold;
 }
 
-/* .design:hover {
-    color: gold;
-} */
 .design-nav {
-    width: 100%;
+    /* width: 100%; */
     background-color: black;
     padding: 30px 15px;
-    color: white;
-  
+    color: white; 
+    margin: 0px;
+  }
+  .logout-btn{
+    margin: 15px;
+    padding: 15px;
+    color: rgb(245, 210, 15);
+  }
+
+  .logout-btn:hover{
+    margin: 15px;
+    padding: 15px;
+    color:white;
   }
 
 .font {
@@ -20,18 +28,19 @@
 
 .flex {
     display: flex;
-    justify-content: space-between;
-   
+    justify-content: space-evenly;    
     flex-direction: row;
     margin: 0;
     padding: 0;
 }
 .flex-direction{
     display: flex;
-    justify-content: space-between;
-   
+    justify-content: space-between; 
     flex-direction: row;
-
+}
+body{
+    margin:0;
+    padding:0;
 }
 .container {
     margin: 0px 35px;
@@ -70,6 +79,11 @@
         padding: 15px 5px;
         flex-wrap: wrap;
     }
+    .flex-direction{
+        display: flex;
+        justify-content: start; 
+        flex-direction: column;
+    }
 
     .flex {
         display: flex;
@@ -78,6 +92,7 @@
         flex-wrap: wrap;
     }
 
+    
     .font {
         font-size: 25px;
         text-decoration: none;

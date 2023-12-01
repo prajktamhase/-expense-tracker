@@ -1,126 +1,159 @@
-.transaction-card{
+.transaction-card {
+  background-color: white;
+  box-shadow: 0 1px 2px 2px gray;
+  margin: 20px auto;
+  padding: 10px 50px;
+  position: relative;
+  width: 630px;
+}
+
+.transaction-card:hover {
+  background-color: white;
+  box-shadow: 0 1px 2px 2px gray;
+  background-color: rgb(243, 238, 238);
+  margin: 20px auto;
+  padding: 10px 50px;
+  position: relative;
+  width: 630px;
+}
+
+.background {
+  background-image: linear-gradient(rgba(85, 79, 79, 0.7), rgba(95, 91, 91, 0.7)), url(./background.png);
+  opacity: 2.9;
+  height: 950px;
+  width: 100vw;
+  background-size: cover;
+  color: white;
+  margin-top: 0;
+  padding: 0;
+}
+
+.update-button {
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 15px;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgb(165, 246, 246);
+  box-shadow: 2px 1px 2px 1px black;
+}
+
+.delete-button {
+  cursor: pointer;
+  margin-left: 115px;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgb(165, 246, 246);
+  box-shadow: 2px 1px 2px 1px black;
+  border: none;
+}
+
+
+.category {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.amount-text {
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+}
+
+body {
+  background-color: rgb(165, 246, 246);
+  margin: 0;
+  padding: 0;
+}
+
+.description-box {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(3, 13, 104);
+  margin-top: 30px;
+}
+
+.box {
+  padding: 7px 10px;
+  margin: 5px;
+  font-size: 25px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  color: rgb(6, 6, 63);
+  text-align: end;
+}
+
+.credit-amount {
+  color: green;
+}
+
+.debit-amount {
+  color: red;
+}
+
+.time {
+  font-size: 14px;
+  margin: 15px;
+  color: red;
+}
+
+.container-button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.flex-home {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:768px) {
+  .transaction-card {
     background-color: white;
     box-shadow: 0 1px 2px 2px gray;
     margin: 20px auto;
     padding: 10px 50px;
     position: relative;
-    width: 650px;
-    }
-
-    .update-button{
-
-      padding: 5px;
-      margin-left: 15px;
-   text-decoration: none;
-   border-radius: 50% ;
-   box-shadow: 1px 1px 1px 1px black;
-  }
-  .delete-button{
-      margin-left: 115px;
-      padding: 5px;
-   text-decoration: none;
-   border-radius: 50% ;
-   box-shadow: 1px 1px 1px 1px black;
-   border: none;
-  }
-
-    .transaction-card:hover{
-      background-color: white;
-      box-shadow: 0 1px 2px 2px gray;
-      background-color: rgb(243, 238, 238);
-      margin: 20px auto;
-      padding: 10px 50px;
-      position: relative;
-      width: 650px;
-      /* display: flex;
-      flex-wrap: wrap; */
-      }
-    .category{
-      margin-top:30px ;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .amount-text{
-      font-size: 30px;
-      margin: 10px;
-      padding: 10px;
-    }
-    body{
-      background-color: rgb(165, 246, 246);
-      margin: 0;
-      padding: 0;
-    }
-    
-    .description-box{
-      font-size: 20px; 
-      font-weight: bold;
-    color:rgb(3, 13, 104);
-     margin-top:30px;
-    }
-    .box{
-      padding:7px 10px;
-      margin: 5px;
-      font-size: 25px;
-      position: absolute;
-      top:2px;
-      right: 10px;
-      color: rgb(6, 6, 63);
-      text-align: end;
-    }
-    
-    .credit-amount{
-      color: green;
-    }
-    
-    .debit-amount{
-      color: red;
-    }
-    
-    .time{
-      font-size: 14px;
-      margin: 15px;
-      color: red;
-    }
-
-    .container-button{
-      position: absolute;
-      bottom: 10px;
-      right: 15px;
-    }
-    .flex{
-      display: flex;
-      justify-content: space-evenly;
-      margin: 10px;
-      padding: 10px;
-      flex-wrap: wrap;
-    }
-    @media screen and (max-width:768px) {
-      .transaction-card{
-        background-color: white;
-        box-shadow: 0 1px 2px 2px gray;
-        margin: 20px auto;
-        padding: 10px 50px;
-        position: relative;
-        width: 450px;
-        /* display: flex;
+    width: 450px;
+    /* display: flex;
         flex-wrap: wrap; */
-        }
-        .transaction-card:hover{
-          background-color: white;
-          box-shadow: 0 1px 2px 2px gray;
-          background-color: rgb(243, 238, 238);
-          margin: 20px auto;
-          padding: 10px 50px;
-          position: relative;
-          width: 450px;
-          }
-          .flex {
-            display: flex;
-            justify-content: space-evenly;
-            margin: 8px;
-            padding: 10px;
-            flex-wrap: wrap;
-          }
-         
+  }
 
-    }
+  .transaction-card:hover {
+    background-color: white;
+    box-shadow: 0 1px 2px 2px gray;
+    background-color: rgb(243, 238, 238);
+    margin: 20px auto;
+    padding: 10px 50px;
+    position: relative;
+    width: 450px;
+  }
+
+  .flex-home {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8px;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+
+  .background {
+    background-image: linear-gradient(rgba(85, 79, 79, 0.7), rgba(95, 91, 91, 0.7)), url(http://localhost:3000/static/media/background.1a7825c6639414d902aa.png);
+    opacity: 2.9;
+    height: 446px;
+    width: 100vw;
+    background-size: cover;
+    color: white;
+    margin-top: 0;
+    padding: 0;
+  }
+
+
+}

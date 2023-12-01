@@ -8,13 +8,13 @@ const transactionSchema = new Schema({
 
     type: {
         type: String,
-        enum: ['credit', 'debit'],
+        enum: ['Credit', 'Debit'],
         required: true
     },
     category: {
-        type: String,
-        enum: ['Food', 'Entertainment', 'Rent', 'Shooping', 'Travel', 'Education', 'Salary', 'Freelancing', 'Side-hussle', 'Other'],
-        default: 'other'
+        type:String,
+        enum: ['food','entertainement','shopping',"rent",'travel','education','salary','freelancing','side-hussle','other'],
+        default:'other',
     },
 
     description: {

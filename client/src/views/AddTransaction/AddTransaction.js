@@ -7,17 +7,9 @@ import Footer from "./../../component/Footer/Footer"
 function AddTransaction() {
     const [amount, setAmount] = useState('')
     const [description, setDescription] = useState('')
-    const [type, setType] = useState("")
+    const [type, setType] = useState("Credit")
     const [category, setCategory] = useState('')
 
-    const handleCheck = (e) => {
-        if (e.target.checked) {
-            setCategory([...category, e.target.value]);
-        }
-        else {
-            const indexToDeleted = category.indexOf(e.target.value)
-        }
-    }
 
     const addTransaction = async () => {
         if (!amount || !type || !category || !description) {
@@ -78,49 +70,27 @@ function AddTransaction() {
                 </div>
 
                 <div className="category-text">
-                    <h3> category:</h3>
-                    <input type="checkbox" value="food"
-                        className="category-design"
-                        onChange={handleCheck} />Food
+                        <label className='cetgory-text'>Category :-</label><br/>
+                        <select
+                        className='category-box'
+                        value={category}
+                        onChange={(e)=>{
+                            setCategory(e.target.value)
+                        }}>
+                            <option >select category here</option>
+                            <option value="food">Food</option>
+                            <option value="entertainement">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="rent">Rent</option>
+                            <option value="travel">Travel</option>
+                            <option value="education">Education</option>
+                            <option value="salary">Salary</option>
+                            <option value="freelancing">Freelancing</option>
+                            <option value="side-hussle">Side-hussle</option>
+                            <option value="other">Other</option>
+                        </select>
+                        </div>
 
-                    <input type="checkbox" value="entertainment"
-                        className="category-design"
-                        onChange={handleCheck} />Entertainment
-
-                    <input type="checkbox" value="rent"
-                        className="category-design"
-                        onChange={handleCheck} />Rent<br />
-
-                    <input type="checkbox" value="shooping"
-                        className="category-design"
-                        onChange={handleCheck} />Shooping
-
-                    <input type="checkbox" value="travel"
-                        className="category-design"
-                        onChange={handleCheck} />Travel
-
-                    <input type="checkbox" value="education"
-                        className="category-design"
-                        onChange={handleCheck} />Education
-
-                    <input type="checkbox" value="salary"
-                        className="category-design"
-                        onChange={handleCheck} />Salary
-
-                    <input type="checkbox" value="freelancing"
-                        className="category-design"
-
-                        onChange={handleCheck} />Freelancing
-
-                    <input type="checkbox" value="side-hussle"
-                        className="category-design"
-
-                        onChange={handleCheck} />Side-hussle<br />
-
-                    <input type="checkbox" value="other"
-                        className="category-design"
-                        onChange={handleCheck} />Other<br />
-                </div>
 
                 <input type="text"
                     placeholder="Description"
@@ -140,6 +110,6 @@ function AddTransaction() {
 
     </>
     )
-
+                
 }
-export default AddTransaction
+export default AddTransaction;

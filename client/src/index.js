@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <Login/>,
       },
       {
-        path: "/update",
+        path: "/update/:_id",
         element: <UpdateTransaction/>,
       },
 

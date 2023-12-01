@@ -14,13 +14,13 @@ function Navbar() {
         <>
             <div className="design-nav flex">
                 <div>
-                    <Link to="/" className="font design">Expense Tracker</Link>
+                    <Link to="/" className="font design">Expense Tracker💳</Link>
                 </div >
 
                 <div className="flex-direction">
                     <Link to="/login" className="container design">Login</Link>
                     <Link to="/signup" className="container design"> Signup</Link>
-                     <Link to="./addTransaction" className="container design">AddTransaction</Link> 
+                     <Link to="/addTransaction" className="container design">AddTransaction</Link> 
                 </div>
 
                 <div className="user ">
@@ -32,7 +32,7 @@ function Navbar() {
                                 localStorage.removeItem("user");
                                 window.location.href = "/login";
                             })}>
-                            Logout
+                              <span className="logout-btn">Logout</span>
                         </span>) : null
                     }
                 </div>
