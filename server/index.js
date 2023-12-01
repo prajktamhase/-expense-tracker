@@ -7,6 +7,10 @@ import User from "./models/user.js"
 import { postApiTransaction, getApiTransaction, deleteGetApi, getApiIdTransaction } from "./controllers/Transaction.js"
 import Transaction from "./models/Transaction.js";
 
+import path from 'path';
+
+const __dirname = path.resolve();
+
 const app = express();
 app.use(express.json());
 
