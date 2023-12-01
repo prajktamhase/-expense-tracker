@@ -1,5 +1,6 @@
 // import './Footer.css';
 import { Link } from 'react-router-dom';
+import "./../../index.css"
 
 
 function Footer() {
@@ -14,12 +15,10 @@ function Footer() {
                 <h1 className='heading text-center'>Expense Tracker</h1><br />
               
                     <div>
-                 
-                        <span class="fontsize">◼ Everyone loves a great deal.<br />
-                            ◼ We’re here to serve only the best products for you.<br />
-                            ◼ Your needs in just one place.<br />
-                            ◼ Look no further! We got everything for you.<br />
-                            ◼ Low low prices await!<br />
+                  <h3 className='fontsize'>Golden Lines</h3><br />
+                        <span class="description">◼ Debit What Comes In, Credit What Goes Out<br />
+                            ◼ Debit the Receiver, Credit the Giver.<br />
+                            ◼ Debit All Expenses and Losses, Credit all Incomes and Gains.<br />
                         </span>
 
                     </div>

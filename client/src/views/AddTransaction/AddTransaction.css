@@ -26,10 +26,11 @@
     width: 300px;
 }
 .category-box{
-    margin: 5px;
+    margin: 5px auto;
     padding: 5px 30px;
     background-color: white;
     color: black;
+    margin-left: 40px;
 }
 .category-text{
 display: inline-block;
@@ -37,6 +38,7 @@ justify-content: space-evenly;
 margin: 10px;
 padding: 10px 20px;
 font-size: 20px;
+text-align: center;
 
 }
 .button-transaction{

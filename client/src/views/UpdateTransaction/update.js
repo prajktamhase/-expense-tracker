@@ -5,6 +5,7 @@ import "./../AddTransaction/AddTransaction.css"
 import Footer from "./../../component/Footer/Footer"
 import Navbar from "./../../component/Navbar/Navbar"
 
+
 function UpdateTransaction() {
 
     const [amount, setAmount] = useState('')
@@ -44,7 +45,7 @@ function UpdateTransaction() {
                     value={amount}
                     onChange={(e) => {
                         setAmount(e.target.value)
-                    }} /><br />
+                    }} /><br /><br/>
 
                 <div className="flex">
                     <h3 >Type: {type}</h3>
@@ -66,12 +67,12 @@ function UpdateTransaction() {
                         }
                     />Debit
 
-                </div>
+                </div><br/>
 
                 <div className="category-text">
-                        <label className='cetgory-text'>Category :-</label><br/>
+                        <label className='cetgory-text'>Category :-</label>
                         <select
-                        className='form-control-regi'
+                        className='category-box'
                         value={category}
                         onChange={(e)=>{
                             setCategory(e.target.value)

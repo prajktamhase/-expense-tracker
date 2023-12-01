@@ -45,10 +45,10 @@ function AddTransaction() {
                     value={amount}
                     onChange={(e) => {
                         setAmount(e.target.value)
-                    }} /><br />
+                    }} /><br /><br/>
 
                 <div className="flex">
-                    <h3 >Type: {type}</h3>
+                    <h3 >Type: </h3>
                     <input type="radio"
                         name="type"
                         value="Credit"
@@ -68,9 +68,9 @@ function AddTransaction() {
                     />Debit
 
                 </div>
-
+<br/>   
                 <div className="category-text">
-                        <label className='cetgory-text'>Category :-</label><br/>
+                        <label className='cetgory-text '>Category :-</label>
                         <select
                         className='category-box'
                         value={category}
