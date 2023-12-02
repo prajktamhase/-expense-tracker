@@ -20,7 +20,7 @@
     border: none;
     box-shadow: 0px 3px 4px 2px gray;
 }
-.box-input{
+.box-input-signup{
     padding: 10px 40px;
     margin: 15px auto;
     width:380px;
@@ -40,14 +40,30 @@
 }
 @media screen and (max-width:768px) {
 
-.login-form-design {
-    width: -moz-fit-content;
-    width: fit-content;
-    border-radius: 10px;
-    box-shadow: 0 1px 5px 2px black;
-    margin: 50px auto;
-    padding: 30px 50px;
-    position: relative;
-    background-color: white;
-  }
+    .sign-form-design {
+        width: -moz-fit-content;
+        width: fit-content;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px 2px black;
+        margin: 57px auto;
+        padding: 0px 106px;
+        position: relative;
+        background-color: white;
+    }
+    .box-input-signup {
+        padding: 5px 10px;
+        margin: 11px auto;
+        margin-right: auto;
+        width: 336px;
+        color: black;
+        font-size: -1px;
+        justify-content: center;
+        align-items: center;
+        margin-right: 100px;
+      }
+      .text-center {
+        text-align: center;
+        font-size: 40px;
+        margin-right: 130px;
+      }
 }

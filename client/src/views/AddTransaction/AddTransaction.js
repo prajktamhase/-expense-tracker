@@ -7,7 +7,7 @@ import Footer from "./../../component/Footer/Footer"
 function AddTransaction() {
     const [amount, setAmount] = useState('')
     const [description, setDescription] = useState('')
-    const [type, setType] = useState("Credit")
+    const [type, setType] = useState("")
     const [category, setCategory] = useState('')
 
 
@@ -51,7 +51,7 @@ function AddTransaction() {
                     <h3 >Type: </h3>
                     <input type="radio"
                         name="type"
-                        value="Credit"
+                        value="credit"
                         onChange={(e) => {
                             setType(e.target.value)
                         }
@@ -60,7 +60,7 @@ function AddTransaction() {
 
                     <input type="radio"
                         name="type"
-                        value="Debit"
+                        value="debit"
                         onChange={(e) => {
                             setType(e.target.value)
                         }

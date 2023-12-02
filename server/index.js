@@ -6,6 +6,7 @@ import { responder } from "./util.js"
 import User from "./models/user.js"
 import { postApiTransaction, getApiTransaction, deleteGetApi, getApiIdTransaction } from "./controllers/Transaction.js"
 import Transaction from "./models/Transaction.js";
+import FindUser from "./models/FindUser.js"
 
 import path from 'path';
 
@@ -119,8 +120,46 @@ app.delete('/api/transactions/:_id', async (req, res) => {
 
 })
 
+app.post('/api/user', async (req, res) => {
+    const { user, product} = req.body;
+    
+    //create instance
+    const userfind = new FindUser ({
+        user,
+        product
+    })
 
+    try {
+        const saveUser = await userfind.save();
+        res.json({
+            success: true,
+            data: saveUser,
+            message: "User Find created successfully"
+        });
+    }
+    catch(e){
+        res.json({
+            success: false,
+            message: e.message,
+        });
+    }
+});
 
+//get/user/:id
+app.get('/api/users/user/:_id' ,async (req,res)=>{
+    const {_id}=req.params;
+
+    const users =  await FindUser.find({user:_id}).populate("user transaction");
+    users.forEach((userfind)=>{
+        userfind.user.password=undefined;
+    })
+
+    res.json({
+        success: true,
+        data: users,
+        message: "User Fetched fetched successfully"
+    });
+})
 
 const PORT = process.env.PORT || 5000;
 

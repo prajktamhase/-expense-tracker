@@ -1,6 +1,10 @@
 import { Schema, model } from "mongoose";
 
 const transactionSchema = new Schema({
+    user:{
+        type:Schema.Types.ObjectId,
+        ref:'User'
+    },
     amount: {
         type: Number,
         required: true,
@@ -8,7 +12,7 @@ const transactionSchema = new Schema({
 
     type: {
         type: String,
-        enum: ['Credit', 'Debit'],
+        enum: ['credit', 'debit'],
         required: true
     },
     category: {

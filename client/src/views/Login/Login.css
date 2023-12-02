@@ -20,6 +20,15 @@
     border: none;
     box-shadow: 0px 3px 4px 2px gray;
 }
+.box-input{
+  padding: 10px 40px;
+  margin: 15px auto;
+  width:380px;
+   color: black;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
 .box-login{
     padding: 10px 10px;
     margin: 17px auto;
@@ -72,6 +81,21 @@
         align-items: center;
         position: relative;
         right:50px;
+      }
+
+      .button-login {
+        background-color: goldenrod;
+        color: black;
+        margin: 10px auto;
+          margin-right: auto;
+        font-size: 30px;
+        padding: 7px 70px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0px 3px 4px 2px gray;
+        margin-right: 120px;
       }
 
       .link-text {

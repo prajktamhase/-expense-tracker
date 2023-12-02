@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 function App() {
 
   const [transaction, setTransaction] = useState();
+  const [debitSum, setDebitSum] = useState();
+  const [creditSum, setCreditSum] = useState()
 
 
   const deleteTransaction = async (_id) => {
@@ -32,10 +34,23 @@ function App() {
 
   const loadTransaction = async () => {
     const response = await axios.get("/api/transactions");
-    const transaction = response?.data?.data;
-    console.log(transaction)
-    setTransaction(transaction);
-  }
+    const transactionData = response?.data?.data;
+
+    let totalCredit = 0;
+    let totalDebit = 0;
+
+    transactionData.forEach((transaction) => {
+      if (transaction.type == "debit") {
+        totalDebit += transaction.amount
+       
+      } else {
+        totalCredit += transaction.amount;
+      }
+    })
+    setCreditSum(totalCredit);
+    setDebitSum(totalDebit);
+    setTransaction(transactionData);
+  };
 
   useEffect(() => {
     loadTransaction();
@@ -45,19 +60,27 @@ function App() {
     <>
       <Navbar />
       <div className='background'>
-        </div>
+      </div>
+      <div className='show-amount'>
+        <h2 className='credit-card'>Credit : {creditSum}₹</h2>
+        <h2 className='credit-card'>Debit : {debitSum}₹</h2>
+        <h2 className='credit-card'>Total : {debitSum +creditSum }₹</h2>
+        <br />
+      </div>
+      <br/>
       <div className='flex-home '>
 
         {
           transaction?.map((transaction, index) => {
             const { _id, amount, type, category, description, createdAt } = transaction;
+
             const date = new Date(createdAt).toLocaleDateString();
             const time = new Date(createdAt).toLocaleTimeString();
             return (
               <>
                 <div className='transaction-card' key={index}>
-                  <span className={`amount-text ${type === "debit" ? "debit-amount" : "credit-amount"}`}>
-                    {type === "debit" ? "-" : "+"} {" "}
+                  <span className={`amount-text ${type == "debit" ? "debit-amount" : "credit-amount"}`}>
+                    {type == "debit" ? "-" : "+"} {" "}
                     {amount}
 
                   </span>
@@ -81,7 +104,7 @@ function App() {
                       ❌</button>
 
                     <Link to={`/update/${_id}`}
-                    className='update-button'>✏️</Link>
+                      className='update-button'>✏️</Link>
                   </div>
 
                 </div>
@@ -89,7 +112,7 @@ function App() {
             )
           })}
       </div>
-      
+
       <Footer />
     </>
   );

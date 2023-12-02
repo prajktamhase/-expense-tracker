@@ -20,7 +20,7 @@ function Signup() {
       alert("All dields are required")
       return;
     }
-    const response = await axios.post('/signup', {
+    const response = await axios.post('/api/signup', {
       name,
       email,
       password,
@@ -57,7 +57,7 @@ function Signup() {
               <label htmlFor="name" className="color-blue">Name: </label><br />
               <input type="text" id="name"
                 value={name}
-                className="box-input"
+                className="box-input-signup"
                 placeholder="Enter Name"
                 onChange={(e) => {
                   setName(e.target.value)
@@ -68,7 +68,7 @@ function Signup() {
               <label htmlFor="email" className="color-blue">Email: </label><br />
               <input type="email" id="email"
                 value={email}
-                className="box-input"
+                className="box-input-signup"
                 placeholder="Enter Email"
                 onChange={(e) => {
                   setEmail(e.target.value)
@@ -79,7 +79,7 @@ function Signup() {
               <label htmlFor="password" className="color-blue">Password:</label><br />
               <input type="password" id="pasword"
                 value={password}
-                className="box-input"
+                className="box-input-signup"
                 placeholder="Enter Password"
                 onChange={(e) => {
                   setPassword(e.target.value)
@@ -90,7 +90,7 @@ function Signup() {
               <label htmlFor="mobile" className="color-blue">Mobile:</label><br />
               <input type="text" id="mobile"
                 value={mobile}
-                className="box-input"
+                className="box-input-signup"
                 placeholder="Enter Mobile"
                 onChange={(e) => {
                   setMobile(e.target.value)
@@ -101,7 +101,7 @@ function Signup() {
               <label htmlFor="address" className="color-blue">Address:</label><br />
               <input type="text" id="address"
                 value={address}
-                className="box-input"
+                className="box-input-signup"
                 placeholder="Enter Address"
                 onChange={(e) => {
                   setAddress(e.target.value)
