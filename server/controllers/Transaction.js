@@ -1,11 +1,12 @@
 import { responder } from "./../util.js"
 import Transaction from "../models/Transaction.js";
-import UserTransaction from "./../models/userTransaction.js"
+
 
 const postApiTransaction = async (req, res) => {
-    const { amount, type, description, category } = req.body;
+    const { user,amount, type, description, category } = req.body;
 
     const transaction = new Transaction({
+        user,
         amount,
         type,
         description,
@@ -25,17 +26,44 @@ const getApiTransaction = (async (req, res) => {
     responder({ res, success: true, message: "Successfully FetchedTransaction ", data: allTransaction })
 })
 
-const getApiIdTransaction = (async (req, res) => {
-    const fetchedTransaction = await Transaction.findOne();
-    responder({ res, success: true, message: "Successfully FetchedTransaction ", data: fetchedTransaction })
-})
+// const getApiIdTransaction = (async (req, res) => {
+//     const fetchedTransaction = await Transaction.findOne();
+//     responder({ res, success: true, message: "Successfully FetchedTransaction ", data: fetchedTransaction })
+// })
 
+const getApiUserTransaction = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const findUserTransaction = await Transaction.find({ user: id }).populate('user')
 
-const deleteGetApi = async (req, res) => {
-    const { _id } = req.params; 
-    const deleteTransaction = await UserTransaction.deleteOne({ _id: _id });
-
-    responder({ res, success: true, message: "Transaction deleted successfully", data: deleteTransaction })
+        findUserTransaction.forEach((singleTransaction) => {
+            singleTransaction.user.password = undefined;
+        })
+        responder({ 
+            res,
+            success: true,
+            data: findUserTransaction,
+            message: "Fetched user data"
+        })
+    }
+    catch (err) {
+        return responder({
+            res,
+            success: false,
+            message: err.message
+        })
+    }
 }
 
-export { postApiTransaction, getApiTransaction, deleteGetApi,getApiIdTransaction };
+const getApiTransactionById = async (req, res) => {
+    const { id } = req.params;
+
+    const transaction = await Transaction.findOne({ id: id }).populate('transaction');
+    return responder({
+        res,
+        success: true,
+        data: transaction,
+        message: "Transaction fetched successfully"
+    });
+}
+export { postApiTransaction, getApiTransaction, getApiUserTransaction, getApiTransactionById };

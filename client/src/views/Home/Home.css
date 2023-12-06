@@ -182,4 +182,18 @@ justify-content: space-evenly;
     text-align: end;
   }
 
+  .show-amount{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+    border:none;
+    box-shadow: 3px 2px 5px 5px white;
+    margin: 30px 50px;
+    padding: 5px;
+    width: 600px;
+    background-color:white;
+  
+   
+  }
+
 }

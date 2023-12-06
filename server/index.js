@@ -4,12 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { responder } from "./util.js"
 import User from "./models/user.js"
-import { postApiTransaction, getApiTransaction, deleteGetApi, getApiIdTransaction } from "./controllers/Transaction.js"
+import { postApiTransaction, getApiTransaction,getApiUserTransaction ,getApiTransactionById} from "./controllers/Transaction.js"
 import Transaction from "./models/Transaction.js";
-import FindUser from "./models/FindUser.js"
 
 import path from 'path';
-
 const __dirname = path.resolve();
 
 const app = express();
@@ -23,7 +21,7 @@ const connectDB = async () => {
     }
 }
 connectDB();
-
+ 
 //signup/post
 app.post("/api/signup", async (req, res) => {
     const { name, email, password, mobile, address } = req.body;
@@ -68,7 +66,6 @@ app.post("/api/login", async (req, res) => {
     }
 })
 
-
 app.get('/api/health', async (req, res) => {
     responder({ res, success: true, message: "Server is live", data: null })
 })
@@ -78,11 +75,6 @@ app.post('/api/transactions', postApiTransaction)
 
 //get Transaction
 app.get('/api/transactions', getApiTransaction)
-
-app.get('/api/transactions/:_id', getApiIdTransaction)
-
-//delete/transaction/:id
-app.delete('/api/transaction/:_id', deleteGetApi)
 
 app.put('/api/transactions/:_id', async (req, res) => {
     const { _id } = req.params;
@@ -120,46 +112,12 @@ app.delete('/api/transactions/:_id', async (req, res) => {
 
 })
 
-app.post('/api/user', async (req, res) => {
-    const { user, product} = req.body;
-    
-    //create instance
-    const userfind = new FindUser ({
-        user,
-        product
-    })
+//get /transaction/user/id
+app.get('/api/transactions/user/:id',getApiUserTransaction)
 
-    try {
-        const saveUser = await userfind.save();
-        res.json({
-            success: true,
-            data: saveUser,
-            message: "User Find created successfully"
-        });
-    }
-    catch(e){
-        res.json({
-            success: false,
-            message: e.message,
-        });
-    }
-});
+//get /transaction /id
+app.get('/api/transaction/:id',getApiTransactionById)
 
-//get/user/:id
-app.get('/api/users/user/:_id' ,async (req,res)=>{
-    const {_id}=req.params;
-
-    const users =  await FindUser.find({user:_id}).populate("user transaction");
-    users.forEach((userfind)=>{
-        userfind.user.password=undefined;
-    })
-
-    res.json({
-        success: true,
-        data: users,
-        message: "User Fetched fetched successfully"
-    });
-})
 
 const PORT = process.env.PORT || 5000;
 
@@ -167,10 +125,10 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
   
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+      res.sendFile(path.join(__dirname, '..' , 'client', 'build', 'index.html'))
     });
   }
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
-})
+   })

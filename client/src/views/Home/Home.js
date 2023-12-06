@@ -1,8 +1,8 @@
 import './Home.css';
 import axios from "axios"
-import Navbar from "./../../component/Navbar/Navbar"
+import Navbar from "../../component/Navbar/Navbar"
 import { useEffect, useState } from "react"
-import Footer from "./../../component/Footer/Footer"
+import Footer from "../../component/Footer/Footer"
 import { Link } from "react-router-dom";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
   const [transaction, setTransaction] = useState();
   const [debitSum, setDebitSum] = useState();
   const [creditSum, setCreditSum] = useState()
+  const [user, setUser] = useState({})
 
 
   const deleteTransaction = async (_id) => {
@@ -33,20 +34,25 @@ function App() {
   }
 
   const loadTransaction = async () => {
-    const response = await axios.get("/api/transactions");
+
+
+    const userStore = JSON.parse(localStorage.getItem('user'))
+    const id = userStore._id
+    const response = await axios.get(`/api/transactions/user/${id}`);
     const transactionData = response?.data?.data;
 
     let totalCredit = 0;
     let totalDebit = 0;
 
-    transactionData.forEach((transaction) => {
-      if (transaction.type == "debit") {
-        totalDebit += transaction.amount
-       
-      } else {
-        totalCredit += transaction.amount;
+    transactionData.forEach((transacation, index) => {
+      if (transacation.type === "credit"){
+        totalCredit =+ transacation.amount;
+      }
+      else {
+        totalDebit += transacation.amount
       }
     })
+
     setCreditSum(totalCredit);
     setDebitSum(totalDebit);
     setTransaction(transactionData);
@@ -54,6 +60,18 @@ function App() {
 
   useEffect(() => {
     loadTransaction();
+  }, [user])
+
+ 
+  useEffect(() => {
+    const storeUser = JSON.parse(localStorage.getItem('user' || '{}'))
+    if (storeUser?.email) {
+      setUser(storeUser)
+
+    } else {
+      alert('you are not logged in !...')
+      window.location.href = '/login'
+    }
   }, [])
 
   return (
