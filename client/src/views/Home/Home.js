@@ -4,6 +4,12 @@ import Navbar from "../../component/Navbar/Navbar"
 import { useEffect, useState } from "react"
 import Footer from "../../component/Footer/Footer"
 import { Link } from "react-router-dom";
+import work from "./w2.png"
+import work1 from "./work.png"
+import work2 from "./w1.png"
+import work3 from "./w5.png"
+import work4 from "./w2.png"
+import work5 from "./w6.png"
 
 function App() {
 
@@ -79,6 +85,37 @@ function App() {
       <Navbar />
       <div className='background'>
       </div>
+
+      <div className='flex-container-home'>
+        <div>
+<img src={work} className='image-work'/>
+        </div>
+
+        <div>
+          <h1 className='text-center'>Better budgeting💸</h1>
+        <h3 className='work-text'>  <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Expense tracking provides a detailed overview of where money is being spent, making it easier to create and stick to a budget. Improved cash flow: The process can help identify areas where cash flow can be improved, such as reducing unnecessary expenses or improving payment terms. </i></h3>
+         </div>
+      </div>
+
+      <div className='flex-container-home'>
+        <div >
+<h1 className='text-center'>How To Track Your Expenses💳</h1>
+<h3 className='work-text'><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While the process remains the same, there are two main ways to track your expenses: manually or using an automated expense tracker. Both methods have advantages and disadvantages, so choosing the one that suits your personal or business needs and preferences is essential. A combination of both manual and automated expense tracking is known to be the ideal combination</i></h3>
+        </div>
+
+        <div>
+<img src={work1} className='image-work'/>
+        </div>
+      </div>
+
+      <div  className='flex-container-home content'>
+        <img src={work2} className='image-flex-home'/>
+        <img src={work3} className='image-flex-home'/>
+        <img src={work4} className='image-flex-home'/>
+        <img src={work5} className='image-flex-home'/>
+
+      </div>
+
       <div className='show-amount'>
         <h2 className='credit-card'>Credit : {creditSum}₹</h2>
         <h2 className='credit-card'>Debit : {debitSum}₹</h2>
