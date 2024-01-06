@@ -11,7 +11,6 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const login = async () => {
-  
     const response = await axios.post('/api/login', {
       email,
       password
